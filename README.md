@@ -42,3 +42,36 @@ It enables collection of Net-NTLM material without dumping LSASS.
 ### Default run
 ```powershell
 .\Monologue-pwn.ps1
+
+```
+
+### Current user only (no impersonation, no downgrade)
+```powershell
+.\Monologue-pwn.ps1 -NoImpersonate -NoDowngrade
+```
+
+### Custom challenge
+```powershell
+.\Monologue-pwn.ps1 -Challenge A1B2C3D4E5F60718
+```
+
+### Verbose execution
+```powershell
+.\Monologue-pwn.ps1 -VerboseFlag
+```
+
+### Attempt domain user + Domain Admins add
+```powershell
+.\Monologue-pwn.ps1 -AddDomainUser -VerboseFlag
+```
+
+## Requirements
+- Windows + PowerShell
+- .NET support for `Add-Type`
+- Admin rights for full impersonation/downgrade behavior
+- Domain privileges for `-AddDomainUser`
+
+## Safety notes
+- Downgrade mode modifies security-relevant registry values unless `-NoDowngrade` is specified.
+- `-AddDomainUser` performs high-impact Active Directory account and group changes.
+- Use only with explicit authorization and change control.
