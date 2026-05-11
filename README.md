@@ -74,4 +74,4 @@ It enables collection of Net-NTLM material without dumping LSASS.
 ## Safety notes
 - Downgrade mode modifies security-relevant registry values unless `-NoDowngrade` is specified.
 - `-AddDomainUser` performs high-impact Active Directory account and group changes.
-- Use only with explicit authorization and change control.
+- Use only with explicit authorization
